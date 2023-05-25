@@ -6,12 +6,12 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD= password
-      - POSTGRES_DB= educationTalksdb
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=educationTalksdb
     ports:
-      -5432:5432
-
+      - 5432:5432
     volumes:
-      -dbdata: /var/lib/postgresql/data
+      - dbdata:/var/lib/postgresql/data
+
 volumes:
   dbdata:
