@@ -7,6 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "prisma":{
+    "seed":"ts-node-esm seeder.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alejandroac6/p3-backend-2023.git"
