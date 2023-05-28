@@ -25,5 +25,5 @@ app.use(errorHandler);
 const { SERVER_PORT } = process.env;
 
 app.listen(SERVER_PORT, () => {
-    console.log(`Talks API listening on port ${SERVER_PORT}`)
+  console.log(`Talks API listening on port ${SERVER_PORT}`);
 });
