@@ -1,5 +1,6 @@
 import express from "express";
 import errorChecked from "../Middlewares/errorChecker.js";
+import commentsRouter from "./CommentsRoutes.js"
 
 import {
   showTalks,
@@ -22,6 +23,7 @@ router.use("/:id", async (req: RequestWithTalkId, res, next) => {
   next();
 });
 
+//Talks Routes
 router.get("/", errorChecked(showTalks));
 router.post("/createTalk", errorChecked(createTalk));
 
@@ -30,5 +32,9 @@ router
   .get(errorChecked(showSingleTalk))
   .put(errorChecked(updateTalk))
   .delete(errorChecked(deleteTalk));
+
+//incorporo el router de comments en el router de Talks
+
+router.use("/:id/comments", commentsRouter);
 
 export default router;

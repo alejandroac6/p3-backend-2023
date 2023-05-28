@@ -6,7 +6,10 @@ const showTalks = async (req, res) => {
 };
 
 const createTalk = async (req, res) => {
-  const newTalk = await prisma.talk.create({ data: req.body });
+  let{name,ownerId}=req.body
+  ownerId=Number(ownerId)
+  console.log(ownerId)
+  const newTalk = await prisma.talk.create({ data: {name,ownerId} });
   res.status(200).json({ newTalk });
 };
 
