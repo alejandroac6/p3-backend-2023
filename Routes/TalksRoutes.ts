@@ -6,6 +6,7 @@ import {
   createTalk,
   showSingleTalk,
   updateTalk,
+  deleteTalk,
 } from "../Controllers/TalkController.js";
 
 const router = express.Router();
@@ -21,6 +22,13 @@ router.use("/:id", async (req: RequestWithTalkId, res, next) => {
   next();
 });
 
-router.get
+router.get("/", errorChecked(showTalks));
+router.post("/createTalk", errorChecked(createTalk));
+
+router
+  .route("/:id")
+  .get(errorChecked(showSingleTalk))
+  .put(errorChecked(updateTalk))
+  .delete(errorChecked(deleteTalk));
 
 export default router;
