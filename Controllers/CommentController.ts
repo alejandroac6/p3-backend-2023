@@ -9,8 +9,11 @@ const displayComments = async (req: RequestWithTalkId, res) => {
 };
 
 const displaySingleComment = async (req: RequestWithTalkId, res) => {
+  const { id } = req.params;
   const Comment = await prisma.comment.findFirst({
-    where: { id: req.params },
+    where: {
+      AND: [{ id: Number(id) }, { talkId: req.TalkId }],
+    },
   });
   res.status(200).json({ Comment });
 };
