@@ -12,10 +12,11 @@ import {
 } from "../Controllers/CommentController.js";
 
 router.get("/", errorChecked(displayComments));
+router.post("/",errorChecked(createComment))
+
 router
   .route("/:id")
   .get(errorChecked(displaySingleComment))
-  .post(errorChecked(createComment))
   .put(errorChecked(editComment))
   .delete(errorChecked(deleteComment));
 
